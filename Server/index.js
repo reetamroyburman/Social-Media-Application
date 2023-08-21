@@ -6,7 +6,8 @@ const postsRouter = require("./routers/postsRouter");
 const userRouter = require("./routers/userRouter");
 const morgan = require("morgan");
 const cookieParser = require("cookie-parser");
-
+const cors = require("cors");
+const cloudinary = require("cloudinary").v2;
 
 dotenv.config("./.env");
 
