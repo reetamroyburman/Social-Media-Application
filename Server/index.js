@@ -1,12 +1,29 @@
 const express = require("express");
 const dotenv = require("dotenv");
 const dbConnect = require("./dbConnect");
+const authRouter = require("./routers/authRouter");
+const postsRouter = require("./routers/postsRouter");
+const userRouter = require("./routers/userRouter");
+const morgan = require("morgan");
+const cookieParser = require("cookie-parser");
 
 
 dotenv.config("./.env");
 
+
+
 const app = express();
 
+//middlewares
+app.use(express.json({ limit: "10mb" }));
+app.use(morgan("common"));
+app.use(cookieParser());
+let origin = 'http://localhost:3000';
+console.log('here env', process.env.NODE_ENV);
+
+app.use("/auth", authRouter);
+app.use("/posts", postsRouter);
+app.use("/user", userRouter);
 app.get("/", (req, res) => {
     res.status(200).send("OK from Server");
 });
