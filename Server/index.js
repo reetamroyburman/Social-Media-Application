@@ -11,8 +11,6 @@ const cloudinary = require("cloudinary").v2;
 
 dotenv.config("./.env");
 
-
-
 const app = express();
 
 //middlewares
