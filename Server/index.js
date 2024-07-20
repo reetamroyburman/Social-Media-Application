@@ -21,6 +21,10 @@ let origin = process.env.CLIENT_URL;
 console.log('here env', process.env.NODE_ENV);
 
 
+if(process.env.NODE_ENV === 'production') {
+    origin = process.env.CLIENT_ORIGIN;
+}
+
 app.use(
     cors({
         credentials: true,
