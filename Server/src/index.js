@@ -1,6 +1,6 @@
 const express = require("express");
 const dotenv = require("dotenv");
-const dbConnect = require("./dbConnect");
+const dbConnect = require("../database/dbConnect");
 const authRouter = require("./routers/authRouter");
 const postsRouter = require("./routers/postsRouter");
 const userRouter = require("./routers/userRouter");
@@ -9,7 +9,7 @@ const cookieParser = require("cookie-parser");
 const cors = require("cors");
 const cloudinary = require("cloudinary").v2;
 
-dotenv.config("./.env");
+dotenv.config("../.env");
 
 const app = express();
 
