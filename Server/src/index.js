@@ -1,6 +1,7 @@
 const express = require("express");
 const dotenv = require("dotenv");
-const dbConnect = require("./dbConnect");
+const swaggerDocs = require('./config/swagger');
+const dbConnect = require("../database/dbConnect");
 const authRouter = require("./routers/authRouter");
 const postsRouter = require("./routers/postsRouter");
 const userRouter = require("./routers/userRouter");
@@ -9,7 +10,7 @@ const cookieParser = require("cookie-parser");
 const cors = require("cors");
 const cloudinary = require("cloudinary").v2;
 
-dotenv.config("./.env");
+dotenv.config("../.env");
 
 const app = express();
 
@@ -17,9 +18,13 @@ const app = express();
 app.use(express.json({ limit: "10mb" }));
 app.use(morgan("common"));
 app.use(cookieParser());
+
+// Set up Swagger
+swaggerDocs(app);
+
+// Cloudinary setup
 let origin = process.env.CLIENT_URL;
 console.log('here env', process.env.NODE_ENV);
-
 
 if(process.env.NODE_ENV === 'production') {
     origin = process.env.CLIENT_ORIGIN;
@@ -44,4 +49,5 @@ const PORT = process.env.PORT || 4001;
 dbConnect();
 app.listen(PORT, () => {
     console.log(`listening on port: ${PORT}`);
+    console.log(`Swagger docs available at http://localhost:${PORT}/api-docs`);
 });
