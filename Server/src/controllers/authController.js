@@ -30,8 +30,8 @@ const signupController = async (req, res) => {
         return res.send(
             success(201, 'user created successfully')
         );
-    } catch (e) {
-        return res.send(error(500, e.message));
+    } catch (_error) {
+        return res.send(error(500, _error.message));
     }
 };
 
@@ -69,8 +69,8 @@ const loginController = async (req, res) => {
         });
 
         return res.send(success(200, { accessToken }));
-    } catch (e) {
-        return res.send(error(500, e.message));
+    } catch (_error) {
+        return res.send(error(500, _error.message));
     }
 };
 

@@ -1,11 +1,10 @@
 {
-  "name": "server",
+  "name": "Social-Media-Backend",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "start": "node ./index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start:dev": "nodemon ./src/server.js"
   },
   "author": "",
   "license": "ISC",
@@ -19,6 +18,13 @@
     "jsonwebtoken": "^9.0.0",
     "mongoose": "^6.8.2",
     "morgan": "^1.10.0",
-    "time-ago": "^0.2.1"
+    "nodemon": "^3.1.4",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.1",
+    "time-ago": "^0.2.1",
+    "yamljs": "^0.3.0"
+  },
+  "devDependencies": {
+    "@types/yamljs": "^0.2.34"
   }
 }
