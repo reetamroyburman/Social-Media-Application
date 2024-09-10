@@ -3,7 +3,7 @@ const dotenv = require("dotenv");
 const swaggerUI = require("swagger-ui-express");
 const YAML = require("yamljs");
 const swaggerJSDocs = YAML.load("./src/config/swagger/api.yaml");
-const dbConnect = require("../dbConnect");
+const dbConnect = require("./config/database/dbConnect");
 const routes = require('./routers/index');
 
 // const authRouter = require("./routers/authRouter");
