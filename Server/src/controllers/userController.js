@@ -57,7 +57,7 @@ const getPostsOfFollowing = async (req, res) => {
         const posts = fullPosts
             .map((item) => mapPostOutput(item, req._id))
             .reverse();
-        
+
         const followingsIds = curUser.followings.map((item) => item._id);
         followingsIds.push(req._id);
 
